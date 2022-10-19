@@ -1,0 +1,44 @@
+<html>
+<header>
+
+</header>
+
+<body>
+
+    <div class="container">
+        <h1>User's Contact Info</h1>
+    <div class="table_list">
+      <table>
+        <thead>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email Address</td>
+        <td>Address</td>
+        <td>Contact Number</td>
+        <td colspan="3">Option</td>
+
+
+        </thead>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.fname %></td>
+            <td><%= post.lname %></td>
+            <td><%= post.email %></td>
+            <td><%= post.address %></td>
+            <td><%= post.cnum %></td>
+            <td><%= link_to 'Show', post_path(post), class: 'btn-list' %></td>
+            <td><%= link_to 'Edit', edit_post_path(post), class: 'btn-list' %></td>
+            <td> <%= button_to 'Delete', post_path(post), method: :delete, class: 'btn-list' %></td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+    </div>
+<div class="btn-standard">
+    <%= link_to 'Create new Contact Information', new_post_path %>
+</div>
+
+</body>
+</html>
+
+

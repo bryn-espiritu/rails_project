@@ -1,0 +1,92 @@
+#navbar .nav-logo{
+    float: none;
+    text-align: center;
+}
+
+#navbar ul,
+#navbar ul li{
+    padding: 0;
+    float: none;
+}
+
+#navbar ul li a{
+    padding: 5px;
+    border-bottom: #333333 dotted 1px;
+}
+
+/* HOME INFO */
+
+#home-info{
+    flex-direction: column;
+}
+
+#home-info .info-img{
+ display: none;
+}
+
+#home-info .info-content{
+    width: 100%;
+}
+
+#home-info .info-content p{
+    padding-bottom: 30px;
+}
+
+/* CARD - 3 icon */
+#card{
+    flex-direction: column;
+}
+
+.card{
+    width: 100%;
+}
+
+/* Box with image */
+
+#box{
+    flex-direction: column;
+}
+
+.box{
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.box img{
+    object-fit: cover;
+    height: 300px;
+    width: 300px;
+    border-radius: 30px;
+}
+
+/* ABOUT Selection */
+#abt-info .info-right,
+#abt-info .info-left{
+    float: none;
+    width: 100%;
+}
+
+.info-left h1{
+    text-align: center;
+}
+
+/* TESTIMONIAL */
+#testimonials{
+    height: 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+#testimonials .testimonial{
+    flex:  0 0 33.333333%;
+    padding: 20px 20px;
+    margin: 0;
+}
+
+
+.py-2{
+    display: none;
+}
+
+

@@ -1,0 +1,59 @@
+/*-----------------------------------------*/
+/*------margin reset--------*/
+/* * {    padding: 0;*!*/
+/*   margin: 0;*/
+/*}*/
+/*----------------------------------------- */
+
+
+.card {
+    border: 1px solid #ccc;
+    background: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.enhance{
+    color: white;
+    background-color: gray;
+}
+
+.bimg1 {
+    background-color: antiquewhite;
+   border: 3px solid indianred;
+    border-radius: 10px;
+}
+
+.bimg2{
+    background: #333;
+    color: white;
+    border-bottom: blue solid 3px;
+    box-sizing: border-box;
+}
+
+.bimg3 {
+    background-image: url('/img/valo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Important selector for background size */
+    height: 300px;
+    width: 600px;
+    color: white;
+
+}
+
+.bimg4 {
+    background: url('/img/logo.png') no-repeat center center;
+    color: white;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#bx{
+    background: #f4f4f4;
+    border: 2px gray solid;
+    width: 500px;
+    /*padding position = top, right, bottom, left*/
+    /*padding shorthand can be top/bottom, left/right*/
+    padding: 20px;
+    margin: 0px;
+    border-box: box style;
+}

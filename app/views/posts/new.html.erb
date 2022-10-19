@@ -1,0 +1,51 @@
+<html>
+
+<header>
+  <link rel="stylesheet" href="../../assets/stylesheets/post_style.css">
+</header>
+
+
+<body>
+
+  <div class="btn-warning"><%= link_to 'View List', posts_path %></div>
+
+
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+    <div id="container">
+    <div class="form-wrap">
+      <h1>Create New Contact Information</h1>
+      <%= form_with model: @post do |form| %>
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <%= form.text_field :fname, placeholder: 'First Name' %>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <%= form.text_field :lname, placeholder: 'Last Name' %>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <%= form.text_field :email, placeholder: 'Email Address' %>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <%= form.text_field :address, placeholder: 'Address' %>
+          </div>
+          <div class="form-group">
+            <label for="cnum">Contact Number</label>
+            <%= form.text_field :cnum, placeholder: 'Contact Number' %>
+          </div>
+        </div>
+        <%= form.submit 'Create new Info', class: 'btn-submit' %>
+    <% end %>
+      </div>
+    </div>
+</body>
+
+</html>

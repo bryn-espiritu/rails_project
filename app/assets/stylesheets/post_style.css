@@ -1,0 +1,148 @@
+/*Utility Use */
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #618685;
+}
+
+.marg-10{ margin: 10px;}
+.marg-20{ margin: 20px;}
+.marg-30{ margin: 30px;}
+.marg-center{margin: 20px 40%;}
+
+.bg-primary{
+    background: #618685;
+    color: #f4f4f4;
+}
+
+.bg-secondary{
+    color: #f4f4f4;
+    background: linear-gradient(#ff7b25, #d64161);
+}
+
+.bg-alt{
+    color: #333333;
+    background: linear-gradient(#b5e7a0, #618685);
+}
+
+ .btn-list{
+     padding: 5px;
+     background: #feb236;
+     color: #f4f4f4;
+     text-decoration: none;
+     border-radius: 5px;
+     border: none;
+     cursor: pointer;
+}
+
+ .btn-list:hover{
+     background: none;
+     color: red;
+ }
+
+.btn-back{
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    background: #618685;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-warning{
+    background: #feb236;
+    color: #f4f4f4;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-standard{
+    border-radius: 50px;
+    background: #b5e7a0;
+    color: #333333;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 30px;
+    width: 80%;
+}
+
+.btn-submit {
+    background: lightgreen;
+    width: 50%;
+    padding: 10px;
+    color: #f4f4f4;
+    cursor: pointer;
+    border-radius: 50px;
+    margin: 15px 80px;
+    border: none;
+}
+
+/* FORM-WRAP */
+.form-wrap {
+    position: relative;
+    background: white;
+    margin-top: 60px;
+    padding: 20px 50px;
+    border-radius: 50px;
+}
+
+.form-wrap h1,
+.form-wrap p {
+    text-align: center;
+}
+
+.form-wrap .form-group {
+    margin-top: 15px;
+}
+
+.form-wrap .form-group label {
+    display: block;
+    color: black;
+}
+
+.form-wrap .form-group input {
+    width: 90%;
+    padding:15px 10px;
+    border: #ddd 1px solid;
+    border-radius: 5px
+}
+
+.form-wrap button:hover {
+    background: cadetblue;
+}
+
+.form-wrap .bottom-text {
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+#container{
+    padding: 5% 10%;
+    margin: 10px 15%;
+}
+
+/*Table design*/
+
+table, th, td {
+    border: 3px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+ tr:nth-child(even) {
+    background-color: #ff7b25;
+    color: #f4f4f4;
+}

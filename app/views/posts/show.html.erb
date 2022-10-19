@@ -1,0 +1,11 @@
+<h1>Showing Contact Information</h1>
+<h2>Contact ID: <%= @post.id %></h2>
+<ul>
+  <li><%= @post.fname %></li>
+  <li><%= @post.lname %></li>
+  <li><%= @post.email %></li>
+  <li><%= @post.address %></li>
+  <li><%= @post.cnum %></li>
+</ul>
+
+<div class="btn-warning"><%= link_to 'Index', posts_path %></div>
