@@ -1,0 +1,52 @@
+<html lang="en">
+<header>
+
+</header>
+
+<body>
+<div>
+
+</div>
+<div class="container">
+  <h1>Medical Appointment Lists</h1>
+  <div class="table_list">
+    <table>
+      <thead>
+      <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Email Address</td>
+      <td>Contact Number</td>
+      <td>Service Type</td>
+      <td> Payment Method</td>
+      <td colspan="2">Appointment Schedule</td>
+      <td colspan="3">Option</td>
+      </tr>
+      </thead>
+
+      <% @appointment.each do |appointment| %>
+        <tr>
+          <td><%= appointment.first_name %></td>
+          <td><%= appointment.last_name %></td>
+          <td><%= appointment.email %></td>
+          <td><%= appointment.cp_number %></td>
+          <td><%= appointment.service %></td>
+          <td><%= appointment.payment %></td>
+          <td><%= appointment.time %></td>
+          <td><%= appointment.date %></td>
+          <td><%= link_to 'Show', show_medical_appointments_path(appointment), class: 'btn-list' %></td>
+          <td><%= link_to 'Edit', edit_medical_appointments_path(appointment), class: 'btn-list' %></td>
+          <td> <%= button_to 'Delete', medical_appointments_path(appointment), method: :delete, class: 'btn-list' %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="btn-standard">
+  <%= link_to 'Create new Contact Information', new_medical_appointment_path %>
+</div>
+
+</body>
+</html>
+
+
