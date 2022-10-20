@@ -6,4 +6,6 @@ class Post < ApplicationRecord
   validates :address, presence: true
   validates :cnum, presence: true
 
+
+  has_many :comments
 end

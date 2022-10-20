@@ -16,6 +16,7 @@
         <td>Address</td>
         <td>Contact Number</td>
         <td colspan="3">Option</td>
+        <td colspan="3">Comment Section</td>
 
 
         </thead>
@@ -29,6 +30,8 @@
             <td><%= link_to 'Show', post_path(post), class: 'btn-list' %></td>
             <td><%= link_to 'Edit', edit_post_path(post), class: 'btn-list' %></td>
             <td> <%= button_to 'Delete', post_path(post), method: :delete, class: 'btn-list' %></td>
+            <td><%= button_to 'comments', post_comments_path(post), class: 'btn-list' %></td>
+            <td><%= link_to 'new comment', new_post_comment_path(post), class: 'btn-list' %></td>
           </tr>
         <% end %>
       </table>
