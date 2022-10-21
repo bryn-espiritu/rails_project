@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :lname
       t.string :email
       t.string :address
-      t.string :cnum
+      t.integer :cnum
       t.timestamps
     end
   end
