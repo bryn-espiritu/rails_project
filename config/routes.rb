@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   # get "welcome" => "welcome#index"
   # root :to => "welcome#index"
   #=================LESSON====================================
-  # resources :posts do
-  #   resources :comments, except: :show
-  # end
+  resources :posts do
+    resources :comments, except: :show
+  end
+  resources :categories
   # ================PERSONAL PROJECT====================================
-  resources :medical_appointments
+   resources :medical_appointments
 
 end
