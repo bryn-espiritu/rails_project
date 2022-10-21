@@ -41,6 +41,9 @@
             <label for="cnum">Contact Number</label>
             <%= form.text_field :cnum, placeholder: 'Contact Number' %>
           </div>
+          <div>
+            <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+          </div>
         </div>
         <%= form.submit 'Create new Info', class: 'btn-submit' %>
     <% end %>
