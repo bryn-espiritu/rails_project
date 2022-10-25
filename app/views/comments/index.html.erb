@@ -1,19 +1,27 @@
-<h1>Title <%= @post.fname %></h1>
+<h1><%= @post.fname %>'s Recent Comment</h1>
 
-<h2>Comments</h2>
 
-<ul>
+
 
   <% @comments.each do |comment| %>
-
-    <li><%= comment.content %>(<%= comment.created_at %>)by <%= comment.user.email %></li>
-    <li><%= link_to 'edit', edit_post_comment_path(@post, comment) %></li>
-    <li><%= button_to 'delete', post_comment_path(@post, comment), method: :delete %></li>
+  <h2></h2>
+    <table>
+      <thead>
+      <tr>
+        <th colspan="3"> <li><%= comment.content %>(<%= comment.created_at %>)by <%= comment.user.email %></li></th>
+      </tr>
+      </thead>
+      <tr>
+        <td><%= link_to 'edit', edit_post_comment_path(@post, comment), class: "btn-list" %></td>
+        <td><%= button_to 'X', post_comment_path(@post, comment), class: "btn-delete", method: :delete %></td>
+        <td><%= link_to "Back", posts_path(@post), class: "btn-list" %></td>
+      </tr>
+    </table>
   <% end %>
 
-</ul>
+
+<div class="btn-standard">
+  <%= link_to 'Create New Comment', new_post_comment_path(@post)%>
+</div>
 
 
-
-
-0

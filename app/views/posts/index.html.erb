@@ -1,12 +1,6 @@
-<html>
-<header>
-
-</header>
 
 <body>
-<div>
-  <%= link_to 'Categories', categories_path %>
-</div>
+
     <div class="container">
         <h1>User's Contact Info</h1>
     <div class="table_list">
@@ -21,7 +15,7 @@
         <td>Category</td>
         <td colspan="3">Option</td>
         <td colspan="2">Comment Section</td>
-          <td>USER</td>
+        <td>USER</td>
         </tr>
         </thead>
         <% @posts.each do |post| %>
@@ -34,7 +28,7 @@
             <td><%= post.categories.pluck(:name).join(',') %></td>
             <td><%= link_to 'Show', post_path(post), class: 'btn-list' %></td>
             <td><%= link_to 'Edit', edit_post_path(post), class: 'btn-list' if post.user == current_user  %></td>
-            <td><%= button_to 'Delete', post_path(post), method: :delete, class: 'btn-list'  if post.user == current_user%></td>
+            <td><%= button_to 'X', post_path(post), method: :delete, class: 'btn-delete'  if post.user == current_user%></td>
             <td><%= link_to 'comments', post_comments_path(post), class: 'btn-list' %></td>
             <td><%= link_to 'new comment', new_post_comment_path(post), class: 'btn-list' %></td>
             <td><%= post.user&.email %></td>
@@ -43,11 +37,12 @@
       </table>
       </div>
     </div>
+
 <div class="btn-standard">
-    <%= link_to 'Create new Contact Information', new_post_path %>
+  <%= link_to 'Create new Contact Information', new_post_path %>
 </div>
 
 </body>
-</html>
+
 
 
