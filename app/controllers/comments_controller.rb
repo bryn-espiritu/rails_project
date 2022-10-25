@@ -1,17 +1,25 @@
 class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: [:edit, :update, :destroy]
+
   def index
     @comments = @post.comments
   end
 
   def new
-    @comment = @post.comments.build
+    @comment = @post.comments.new
   end
 
 
   def create
     @comment = @post.comments.build(params_comment)
+    @comment.user = current_user
+
+    @comment = Comment.new(content: params[:comment][:content])
+    @comment.post = @post
+    @comment.user = current_user
+
+
     if @comment.save
       redirect_to post_comments_path(@post)
     else
@@ -43,6 +51,6 @@ class CommentsController < ApplicationController
   end
 
   def params_comment
-    params.require(:comment).permit(:fname, :email)
+    params.require(:comment).permit(:content)
   end
 end
