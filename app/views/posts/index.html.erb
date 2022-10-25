@@ -7,15 +7,16 @@
       <table>
         <thead>
         <tr>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Email Address</td>
-        <td>Address</td>
-        <td>Contact Number</td>
-        <td>Category</td>
-        <td colspan="3">Option</td>
-        <td colspan="2">Comment Section</td>
-        <td>USER</td>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Address</th>
+        <th>Contact Number</th>
+        <th>Comment Counts</th>
+        <th>Category</th>
+        <th colspan="3">Option</th>
+        <th colspan="2">Comment Section</th>
+        <th>USER</th>
         </tr>
         </thead>
         <% @posts.each do |post| %>
@@ -25,6 +26,7 @@
             <td><%= post.email %></td>
             <td><%= post.address %></td>
             <td><%= post.cnum %></td>
+            <td><%= post.comments_count %></td>
             <td><%= post.categories.pluck(:name).join(',') %></td>
             <td><%= link_to 'Show', post_path(post), class: 'btn-list' %></td>
             <td><%= link_to 'Edit', edit_post_path(post), class: 'btn-list' if post.user == current_user  %></td>
