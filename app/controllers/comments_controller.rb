@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: :index
+  before_action :validate_comment_owner, only: [:edit, :update, :destroy]
 
   def index
     @comments = @post.comments
@@ -52,5 +54,12 @@ class CommentsController < ApplicationController
 
   def params_comment
     params.require(:comment).permit(:content)
+  end
+
+  def validate_comment_owner
+    unless @comment.user == current_user
+      flash[:notice] = 'the comment not belongs to you'
+      redirect_to post_comments_path(@post)
+    end
   end
 end
