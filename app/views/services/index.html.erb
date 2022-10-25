@@ -1,0 +1,13 @@
+<h1>Service Types</h1>
+
+<ul>
+  <% @services.each do |service| %>
+    <li>
+      <%= service.name %>
+      <%= link_to :edit, edit_service_path(service) %>
+      <%= button_to :delete, service_path(service), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'new', new_service_path %>
