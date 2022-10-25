@@ -6,8 +6,9 @@
 
   <% @comments.each do |comment| %>
 
-    <li><%= comment.content %>(<%= comment.created_at %>)</li>
-    <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+    <li><%= comment.content %>(<%= comment.created_at %>)by <%= comment.user.email %></li>
+    <li><%= link_to 'edit', edit_post_comment_path(@post, comment) %></li>
+    <li><%= button_to 'delete', post_comment_path(@post, comment), method: :delete %></li>
   <% end %>
 
 </ul>
