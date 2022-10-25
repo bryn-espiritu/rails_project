@@ -1,0 +1,5 @@
+<h1>category id: <%= @payment.id %></h1>
+
+
+
+<%= render partial: 'form', locals: {payment: @payment, path: payments_path(@payment) } %>
