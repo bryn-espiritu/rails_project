@@ -1,7 +1,9 @@
 class MedicalAppointmentsController < ApplicationController
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @appointments = MedicalAppointment.all
+    @appointments = MedicalAppointment.includes(:payments).all
+    @appointments = MedicalAppointment.includes(:services).all
   end
 
   def new
@@ -9,33 +11,44 @@ class MedicalAppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = MedicalAppointment.new(params[:appointment].permit(:first_name, :last_name, :email, :cp_number, :service, :payment, :time, :date))
+    @appointment = MedicalAppointment.new(appointment_params)
     if @appointment.save
       redirect_to medical_appointments_path
     else
       render :new, status: :unprocessable_entity
     end
   end
-    def show
-      @appointment = MedicalAppointment.find(params[:id])
-    end
 
-    def edit
-      @appointment = MedicalAppointment.find(params[:id])
-    end
+  def show
 
-    def update
-      @appointment = MedicalAppointment.find(params[:id])
-      if @appointment.update(params.require(:appointment).permit(:first_name, :last_name, :email, :cp_number, :service, :payment, :time, :date))
-        redirect_to medical_appointments_path
-      else
-        render :edit, status: :unprocessable_entity
-      end
-    end
-    def destroy
-      @appointment = MedicalAppointment.find(params[:id])
-      @appointment.destroy
+  end
+
+  def edit
+
+  end
+
+  def update
+    @appointment = MedicalAppointment.find(appointment_params)
+    if @appointment.update(appointment_params)
       redirect_to medical_appointments_path
-      end
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @appointment.destroy
+    redirect_to medical_appointments_path
+  end
+
+  private
+
+  def set_appointment
+    @appointment = MedicalAppointment.find(params[:id])
+  end
+
+  def appointment_params
+    params.require(:appointment).permit(:first_name, :last_name, :email, :cp_number,:date, :time, :method, service_ids: [], payment_ids: [])
+  end
 
 end
