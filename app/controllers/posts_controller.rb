@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :validate_post_owner, only: [:edit, :update, :destroy]
 
 
   def index
-    @posts = Post.includes(:categories).all
+    @posts = Post.includes(:categories, :user).all
   end
 
   def new
@@ -12,6 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to posts_path
     else
@@ -47,6 +50,13 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:fname, :lname, :email, :cnum, :name, category_ids: [])
+    params.require(:post).permit(:fname, :lname, :address, :email, :cnum, :name, category_ids: [])
+  end
+
+  def validate_post_owner
+    unless @post.user == current_user
+      flash[:notice] = 'Unauthorized access to Post:'
+      redirect_to posts_path
+    end
   end
 end
