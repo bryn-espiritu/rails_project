@@ -7,13 +7,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="../../assets/stylesheets/post_style.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <p><%= "hi! #{current_user.email}" if current_user %></p>
+  <p></p>
+  <nav id="navbar">
+    <div class="nav-container">
+      <h2 class="nav-logo head-font"><%= "Welcome! #{current_user.email}" if current_user %></h2>
+      <ul class="nav-list">
+        <li><%= link_to 'View List', posts_path%> </li>
+        <li> <%= link_to 'Categories', categories_path %></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </nav>
 
     <%= yield %>
   </body>
