@@ -16,12 +16,12 @@
         <td>First Name</td>
         <td>Last Name</td>
         <td>Email Address</td>
-        <td>User</td>
         <td>Address</td>
         <td>Contact Number</td>
         <td>Category</td>
         <td colspan="3">Option</td>
         <td colspan="3">Comment Section</td>
+          <td>USER</td>
         </tr>
         </thead>
         <% @posts.each do |post| %>
@@ -29,15 +29,15 @@
             <td><%= post.fname %></td>
             <td><%= post.lname %></td>
             <td><%= post.email %></td>
-            <td><%= post.user.email %></td>
             <td><%= post.address %></td>
             <td><%= post.cnum %></td>
             <td><%= post.categories.pluck(:name).join(',') %></td>
             <td><%= link_to 'Show', post_path(post), class: 'btn-list' %></td>
-            <%= link_to 'Edit', edit_post_path(post) if post.user == current_user %>
-            <%= button_to 'Delete', post_path(post), method: :delete  if post.user == current_user%>
+            <td><%= link_to 'Edit', edit_post_path(post), class: 'btn-list' if post.user == current_user  %></td>
+            <td><%= button_to 'Delete', post_path(post), method: :delete, class: 'btn-list'  if post.user == current_user%></td>
             <td><%= button_to 'comments', post_comments_path(post), class: 'btn-list' %></td>
             <td><%= link_to 'new comment', new_post_comment_path(post), class: 'btn-list' %></td>
+            <td><%= post.user&.email %></td>
           </tr>
         <% end %>
       </table>
