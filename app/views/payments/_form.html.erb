@@ -1,0 +1,5 @@
+<%= form_with model: payment, url: path, data: { turbo: false } do |form| %>
+<%= form.label :method %>
+<%= form.text_field :method %>
+<%= form.submit %>
+<% end %>
