@@ -5,8 +5,6 @@ class CreateMedicalAppointments < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :email
       t.integer :cp_number
-      t.string :service
-      t.string :payment
       t.time :time
       t.date :date
       t.timestamps
