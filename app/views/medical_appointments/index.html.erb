@@ -1,37 +1,35 @@
 <html lang="en">
 <header>
-
+<!--no header yet <=====================================>-->
 </header>
 
 <body>
-<div>
 
-</div>
 <div class="container">
   <h1>Medical Appointment Lists</h1>
   <div class="table_list">
     <table>
       <thead>
       <tr>
-      <td>First Name</td>
-      <td>Last Name</td>
-      <td>Email Address</td>
-      <td>Contact Number</td>
-      <td>Service Type</td>
-      <td> Payment Method</td>
-      <td colspan="2">Appointment Schedule</td>
-      <td colspan="3">Option</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email Address</td>
+        <td>Contact Number</td>
+        <td>Service Type</td>
+        <td> Payment Method</td>
+        <td colspan="2">Appointment Schedule</td>
+        <td colspan="3">Option</td>
       </tr>
       </thead>
 
-      <% @appointment.each do |appointment| %>
+      <% @appointments.each do |appointment| %>
         <tr>
           <td><%= appointment.first_name %></td>
           <td><%= appointment.last_name %></td>
           <td><%= appointment.email %></td>
           <td><%= appointment.cp_number %></td>
-          <td><%= appointment.service %></td>
-          <td><%= appointment.payment %></td>
+          <td><%= appointment.service.pluck(:name).join(',') %></td>
+          <td><%= post.payment.pluck(:method).join(',') %></td>
           <td><%= appointment.time %></td>
           <td><%= appointment.date %></td>
           <td><%= link_to 'Show', show_medical_appointments_path(appointment), class: 'btn-list' %></td>
