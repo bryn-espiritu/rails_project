@@ -7,4 +7,10 @@ class MedicalAppointment < ApplicationRecord
   validates :payment, presence: true
   validates :time, presence: true
   validates :date, presence: true
+
+
+  has_many :medical_services, dependent: :restrict_with_exception
+  has_many :service, through: :medical_services
+  has_many :payment, through: :medical_services
+
 end
