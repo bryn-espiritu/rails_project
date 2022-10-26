@@ -1,4 +1,8 @@
 
+
+
+
+
 <%= form_with model: comment, url: path, data: { turbo: false } do |form| %>
   <% if comment.errors.any? %>
     <ul>
@@ -7,10 +11,17 @@
       <% end %>
     </ul>
   <% end %>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+  <div id="container">
+    <div class="form-wrap">
+      <h1>Comment Section</h1>
+        <div class="form-group">
+          <label for="first-name">Enter Comment Below</label>
+          <%= form.text_area :content, class: "input-comment",placeholder: 'Comment' %>
+        </div>
+          <div class="">
+        <div class="submit">  <%= form.submit 'Submit', class: 'btn-submit btn-s2' %></div>
+      <% end %>
 
-  <%= form.submit %>
-<% end %>
+  </div>
+</div>
+</div>

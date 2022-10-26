@@ -3,12 +3,12 @@
 
 
 
-  <% @comments.each do |comment| %>
-  <h2></h2>
+<% @comments.each do |comment| %>
+
     <table>
       <thead>
       <tr>
-        <th colspan="3"> <li><%= comment.content %>(<%= comment.created_at %>)by <%= comment.user.email %></li></th>
+        <th colspan="3"><%= comment.content %>(<%= comment.created_at %>)by <%= comment.user.email %></th>
       </tr>
       </thead>
       <tr>
@@ -17,11 +17,16 @@
         <td><%= link_to "Back", posts_path(@post), class: "btn-list" %></td>
       </tr>
     </table>
-  <% end %>
 
+<% end %>
 
 <div class="btn-standard">
   <%= link_to 'Create New Comment', new_post_comment_path(@post)%>
 </div>
+
+<%= paginate @comments %>
+
+
+
 
 
