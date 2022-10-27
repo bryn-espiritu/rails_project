@@ -12,8 +12,5 @@ Rails.application.routes.draw do
   end
   resources :categories
   # ================PERSONAL PROJECT====================================
-  resources :medical_appointments
-  resources :services
-  resources :payments
 
 end
